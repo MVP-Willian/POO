@@ -8,15 +8,17 @@ public class User {
     private String nome;
     private String cpf;
     private String senha;
+    private float renda;
     private List<Animal> adotados;
-    private boolean statusConta;
+    private boolean statusConta = false;
 
-    //Construto
-    public User(String nome, String cpf, String senha){
+    //Construtor
+    public User(String nome, String cpf, String senha, float renda){
         this.nome = nome;
         this.cpf = cpf;
         this.senha = senha;
         this.adotados = new ArrayList<>();
+        this.renda = renda;
         this.statusConta = true;
 
     }
@@ -29,9 +31,12 @@ public class User {
     public String getCpf() { return cpf; }
     public void setCpf(String cpf){ this.cpf = cpf; }
 
+    //renda
+    public float getRenda() { return renda; }
+    public void setRenda(float renda){ this.renda = renda; }
+
     //senha
     public String getSenha(){ return senha; }
-    public void setSenha(String senha){ this.senha = senha; }
 
     //adotados
     public List<Animal> getAdotados(){ return adotados; }
@@ -41,10 +46,11 @@ public class User {
     //MÉTODOS (APENAS OS QUE ENVOLVEM A MESMA CLASSE
 
     //editar perfil
-    public void editarPergil(String senhaAtual, String nome, String cpf){
+    public void editarPergil(String senhaAtual, String nome, String cpf, float renda){
         if(this.senha.equals(senhaAtual)){
             this.nome = nome;
             this.cpf = cpf;
+            this.renda = renda;
         }
     }
     //editar senha
@@ -60,29 +66,70 @@ public class User {
     }
 
     //Efetuar solicitacoes
-    public Solicitacao solicitarAdocao(Animal animal){
-        return new Solicitacao(this.cpf, animal, "adocao", "pendente");
+    public Adocao solicitarAdocao(Animal animal ){
+        return new Adocao(this, animal );
     }
 
-    public Solicitacao solicitarResgate(Animal animal){
-        return new Solicitacao(this.cpf, animal, "Resgate", "pendente");
+    public Resgate solicitarResgate(String especie, String sexo, String local, String caracteristicas){
+        return new Resgate(especie, sexo, local, caracteristicas, this);
     }
 
 }
 
 public class Admin extends User{
-    public Admin(String nome, String cpf, String senha){
-        super(nome, cpf,  senha);
+    private boolean ativa = false;
+
+    //Construtor
+    public Admin(String nome, String cpf, String senha, float renda){
+        super(nome, cpf,  senha, renda);
     }
+
+    //getters
+    public boolean isAtiva(){ return ativa; }
+
+    //Métodos:
+    public void aprovar(){
+        this.ativa = true;
+    }
+    public void reprovar(){
+        this.ativa = false;
+    }
+
     public void aprovarSolicitacao(Solicitacao solicitacao){
-        solicitacao.setSituacao("aprovada");
-        System.out.println("Solicitação aprovada pelo ADM.");
+        if(this.ativa == true){
+            solicitacao.setSituacao("aprovada");
+            System.out.println("Solicitação aprovada pelo ADM.");
+        }
+        else{
+            System.out.println("ADM não aprovado ainda. Não pode aprovar solicitações.")
+        }
     }
+
+
     public void recusarSolicitacao(Solicitacao solicitacao){
-        solicitacao.setSituacao("recusada");
-        System.out.println("Solicitação recusada pelo ADM.");
+        if(this.ativa == true){
+            solicitacao.setSituacao("recusada");
+            System.out.println("Solicitação recusada pelo ADM.");
+        }
+        else {
+            System.out.println("ADM não aprovado ainda. Não pode reprovar solicitações.");
+        }
     }
 }
 
 public class superAdmin extends Admin{
+    //Construtor:
+    public superAdmin(String nome, String cpf, String senha, float renda){
+        super(nome, cpf, senha, renda);
+        System.out.println("ADM " + novoAdm.getNome() + " adicionado com sucesso!");
+    }
+    public void removerAdmin(List<Admin> adms, Admin adm){
+        if(adms.remove(adm)){
+            System.out.println("ADM" + adm.getNome() + "removido com sucesso.");
+        }
+        else{
+            System.out.println("ADM" + adm.getNome() + "não encontrado.");
+        }
+    }
+
 }

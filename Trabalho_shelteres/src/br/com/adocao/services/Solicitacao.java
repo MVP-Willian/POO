@@ -4,14 +4,13 @@ public class Solicitacao {
     private String userCpf;
     private Animal animal;
     private String tipo; //resgate-adocao
-    private String situacao; //recusada-aprovada-pendente
+    private String situacao = "pendente"; //recusada-aprovada-pendente
 
     //CONSTRUTOR
-    public Solicitacao(String userCpf, Animal animal, String tipo, String situacao){
+    public Solicitacao(String userCpf, Animal animal, String tipo){
         this.userCpf = userCpf;
         this.animal = animal;
         this.tipo = tipo;
-        this.situacao = situacao;
     }
 
     //GETTERS
