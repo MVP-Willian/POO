@@ -6,7 +6,7 @@ import br.com.adocao.model.Adocao;
 
 public class AdocaoService {
 
-    private List<Adocao> adocoes = ArrayList<>();
+    private List<Adocao> adocoes = new ArrayList<>();
 
     public void registrar(Adocao adocao){
         adocoes.add(adocao);
@@ -14,7 +14,7 @@ public class AdocaoService {
 
     public List<Adocao> listarPendentes() {
         return adocoes.stream()
-                .filter(a -> a.getSitucao().equals("PENDENTE"))
+                .filter(a -> a.getSituacao().equals("PENDENTE"))
                 .toList();
     }
 }

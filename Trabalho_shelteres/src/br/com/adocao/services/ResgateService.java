@@ -5,7 +5,7 @@ import java.util.List;
 import br.com.adocao.model.Resgate;
 
 public class ResgateService {
-    private List<Resgate> resgates = ArrayList<>();
+    private List<Resgate> resgates = new ArrayList<>();
 
     public void registra(Resgate resgate){
         resgates.add(resgate);
@@ -13,9 +13,7 @@ public class ResgateService {
 
     public List<Resgate> listarSolicitacoes(){
         return resgates.stream()
-                .filter(r -> r.getSitucao().equals("solicitado"))
+                .filter(r -> r.getSituacao().equals("solicitado"))
                 .toList();
-
-
     }
 }

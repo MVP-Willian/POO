@@ -4,7 +4,7 @@ public class Adocao{
     private User user;
     private Animal animal;
     private String situacao = "pendente";
-    private boolean ativa = false
+    private boolean ativa = false;
 
 
     //Construtor:
@@ -33,7 +33,7 @@ public class Adocao{
     //Setters
 
     public void cancelarAdocao(boolean ativa) {
-        this.ativa = "false";
+        this.ativa = false;
     }
 
 
