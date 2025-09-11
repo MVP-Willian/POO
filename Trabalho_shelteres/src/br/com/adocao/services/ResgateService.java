@@ -7,7 +7,7 @@ import br.com.adocao.model.Resgate;
 public class ResgateService {
     private List<Resgate> resgates = new ArrayList<>();
 
-    public void registra(Resgate resgate){
+    public void registrar(Resgate resgate){
         resgates.add(resgate);
     }
 

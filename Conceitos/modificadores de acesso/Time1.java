@@ -10,8 +10,8 @@ public class Time1{
         throw new IllegalArgumentException("hour, minute and/or second was out of range");
         }
         this.hour = hour;
-        this.minute = minute 
-        this.second = second
+        this.minute = minute;
+        this.second = second;
     }
     public String toUniverseString(){
         return String.format("%02d:%02d:%02d", hour, minute, second);   

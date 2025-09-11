@@ -21,10 +21,12 @@ public class Main {
     }
 
     private static void carregarDadosIniciais() {
-        admins.add(new Admin("Admin1", "000000000-00", "032105", 3600.0));
-        usuarios.add(new User("Michael", "03895679229", "guiguinho", 15000.0));
-        animais.add(new Animal(434, "trufinha", 4, "vira-lata", "M", "Possui um rabo cortado", "Ainda nao foi vacinado", "-3.0702569,-59.9534721", "Disponível", "grande", 35));
-        animais.add(new Animal(434, "leoleo", 4, "chouchou", "F", "Cachorro não é dócil", "Orelha está machucada", "-3.0702569,-59.9534721", "Solicitado", "pequeno", 35));
+        admins.add(new Admin("Admin1", "user@gmail.com", "21412453412", "032105", 3600.0f));
+        usuarios.add(new User("Michael", "michael.vieira@icomp.ufam.edu.br", "02423459302", "guiguinho", 15000.0f));
+        animais.add(new Animal(434, "trufinha", 4, "vira-lata", "M", "Possui um rabo cortado",
+                "Ainda nao foi vacinado", "-3.0702569,-59.9534721", "Disponível", "grande", 35));
+        animais.add(new Animal(521, "leoleo", 4, "chouchou", "F", "Cachorro não é dócil",
+                "Orelha está machucada", "-3.0702569,-59.9534721", "Solicitado", "pequeno", 35));
 
     }
 
@@ -33,30 +35,47 @@ public class Main {
             System.out.println("\n=== Sistema de Adoção e Resgate ===");
             System.out.println("Animais para adoção:");
             animais.stream() //cria um conjunto de atributos desse objeto que seja interavel
-                    .filter(a->a.getSitucao().equalsIgnoreCase("Disponível"))
+                    .filter(a->a.getSituacao().equalsIgnoreCase("Disponível"))
                     .forEach(System.out::println);
 
 
             System.out.println("\nOpções:");
-            System.out.println("1. Quero adotar um animal.");
-            System.out.println("2. Quero registrar um resgate");
-            System.out.println("3. Login Admin");
-            System.out.println("4. Login Usuario");
-            System.out.println("5. Sair");
+            if(usuarioLogado == null) {
+                System.out.println("1. Quero adotar um animal.");
+                System.out.println("2. Quero registrar um resgate");
+                System.out.println("3. Login");
+                System.out.println("4. Cadastrar conta");
+                System.out.println("5. Sair");
+            } else {
+                // Usuário já está logado -> mostrar opções específicas
+                System.out.println("1. Quero adotar um animal.");
+                System.out.println("2. Quero registrar um resgate.");
+                System.out.println("3. Ver minhas solicitações");
+                System.out.println("4. Logout");
+                System.out.println("5. Sair");
+            }
             System.out.println("Escolha: ");
             int opcao = sc.nextInt();
             sc.nextLine();
 
-            switch (opcao){
-                case 1 -> fluxoAdocao();
-                case 2 -> fluxoResgate();
-                case 3 -> loginAdmin();
-                case 4 -> loginSuperAdmin();
-                case 5 -> {
-                    System.out.println("Saindo...");
-                    return;
+            if(usuarioLogado == null) {
+                switch (opcao) {
+                    case 1 -> fluxoAdocao();
+                    case 2 -> fluxoResgate();
+                    case 3 -> login();
+                    case 4 -> cadastrarUsuario();
+                    case 5 -> { System.out.println("Saindo..."); return; }
+                    default -> System.out.println("Opção inválida!");
                 }
-                default -> System.out.println("Opção inválida!");
+            } else{
+                switch (opcao) {
+                    case 1 -> fluxoAdocao();
+                    case 2 -> fluxoResgate();
+                    case 3 -> verSolicitacoes();
+                    case 4 -> { usuarioLogado = null; System.out.println("Logou realizado."); return; }
+                    case 5 -> { System.out.println("Saindo..."); return; }
+                    default -> System.out.println("Opção inválida!");
+                }
             }
         }
     }
@@ -64,16 +83,20 @@ public class Main {
     private static void fluxoAdocao(){
         if(usuarioLogado == null){
             autenticarUsuario();
+            if(usuarioLogado == null){
+                System.out.println("Não foi possível logar ou registrar o usuário!");
+                return;
+            }
         }
         System.out.println("\nEscolha o animal pelo índice:");
         for(int i = 0; i < animais.size(); i++){
-            if(animais.get(i).getSituacao).equalsIgnoreCase("Disponível")){
+            if(animais.get(i).getSituacao().equalsIgnoreCase("Disponível")){
                 System.out.println(i + "-" + animais.get(i).getNome());
             }
         }
         int indice = sc.nextInt();
         sc.nextLine();
-        if(indice >=0 %% indice < animais.size()){
+        if(indice >=0 && indice < animais.size()){
             Animal escolhido = animais.get(indice);
             adocaoService.registrar(usuarioLogado.solicitarAdocao(escolhido));
             System.out.println("Solicitação registrada!");
@@ -85,13 +108,14 @@ public class Main {
     private static void fluxoResgate(){
         if(usuarioLogado == null){
             autenticarUsuario();
+
         }
 
         System.out.print("Espécie: ");
         String especie = sc.nextLine();
         System.out.print("Sexo: ");
         String sexo = sc.nextLine();
-        String.out.print("Local: ");
+        System.out.print("Local: ");
         String local = sc.nextLine();
         System.out.print("Caractrísticas: ");
         String caracteristicas = sc.nextLine();
@@ -101,19 +125,24 @@ public class Main {
 
     private static void autenticarUsuario(){
         System.out.println("\nVocê precisa estar logado.");
-        System.out.print("1. Fazer login");
-        String nome = sc.nextLine("2. Criar conta");
+        System.out.println("1. Fazer login");
+        System.out.println("2. Criar conta");
+        System.out.println("3. Menu Principal");
         int op = sc.nextInt();
         sc.nextLine();
-        if(op == 1){
-            loginUsuario();
-        } else{
-            cadastrarUsuario();
+        switch (op){
+            case 1 -> login();
+            case 2 -> cadastrarUsuario();
+            case 3 -> {
+                System.out.println("Saindo...");
+                return;
+            }
+            default -> System.out.println("Opção inválida!");
         }
 
     }
 
-    private static void loginSuperAdmin(){
+    private static void login(){
         System.out.print("Email: ");
         String email = sc.nextLine();
         System.out.print("Senha: ");
@@ -123,9 +152,18 @@ public class Main {
                 .findFirst()
                 .orElse(null);
         if(usuarioLogado == null){
-            System.out.println("Login inválido!")
+            usuarioLogado = admins.stream()
+                    .filter(u -> u.getEmail().equals(email) && u.getSenha().equals(senha))
+                    .findFirst()
+                    .orElse(null);
+            if(usuarioLogado == null){
+                System.out.println("\nLogin ou senha incorreto!");
+            }
+            else {
+                System.out.println("Bem-vindo Admin, " + usuarioLogado.getNome());
+            }
         } else {
-            System.out.println("Bem-vindo, "+usuarioLogado.getNome());
+            System.out.println("Bem-vindo, " + usuarioLogado.getNome());
         }
     }
 
@@ -138,27 +176,17 @@ public class Main {
         String email = sc.nextLine();
         System.out.print("Senha: ");
         String senha = sc.nextLine();
-        usuarioLogado = new User(nome, cpf, email, senha);
+        System.out.print("Renda: ");
+        String rendaStr = sc.nextLine();
+        float renda = Float.parseFloat(rendaStr);
+
+        usuarioLogado = new User(nome, email, cpf, senha, renda);
         usuarios.add(usuarioLogado);
         System.out.println("Usuario cadastrado!");
     }
 
-    private static void loginAdmin(){
-        System.out.print("Email: ");
-        String email = sc.nextLine();
-        System.out.print("Senha: ");
-        String senha = sc.nextLine();
-        adminLogado = admins.stream()
-                .filter(u -> u.getEmail().equals(email) && u.getSenha().equals(senha))
-                .findFirst()
-                .orElse(null);
-        if(adminLogado == null){
-            System.out.println("Bem-vindo Admin!")
-        } else{
-            System.out.println("Login inválido!");
-        }
+    public static void verSolicitacoes(){
+
     }
 
-    private static void loginUsuario(){
-    }
 }

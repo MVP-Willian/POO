@@ -14,7 +14,7 @@ public class AdocaoService {
 
     public List<Adocao> listarPendentes() {
         return adocoes.stream()
-                .filter(a -> a.getSituacao().equals("PENDENTE"))
+                .filter(a -> a.getSituacao().equals("pendente"))
                 .toList();
     }
 }

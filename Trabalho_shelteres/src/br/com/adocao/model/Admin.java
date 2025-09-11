@@ -4,8 +4,8 @@ public class Admin extends User{
     private boolean ativa = false;
 
     //Construtor
-    public Admin(String nome, String cpf, String senha, float renda){
-        super(nome, cpf,  senha, renda);
+    public Admin(String nome, String cpf, String email, String senha, float renda){
+        super(nome, email, cpf,  senha, renda);
     }
 
     //getters
@@ -19,10 +19,10 @@ public class Admin extends User{
         this.ativa = false;
     }
 
-    public void aprovarSolicitacao(Solicitacao solicitacao){
+    public void aprovarSolicitacaoAdocao(Adocao adocao){
         if(this.ativa == true){
-            solicitacao.setSituacao("aprovada");
-            System.out.println("Solicitação aprovada pelo ADM.");
+            adocao.setSituacao("aprovada");
+            System.out.println("Adocao aprovada pelo ADM.");
         }
         else{
             System.out.println("ADM não aprovado ainda. Não pode aprovar solicitações.");
