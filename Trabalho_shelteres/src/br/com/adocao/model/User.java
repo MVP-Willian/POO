@@ -3,7 +3,14 @@ package br.com.adocao.model;
 import java.util.List;
 import java.util.ArrayList;
 
+/**
+ * Representa um usuário (adotante) no sistema.
+ * Esta classe armazena informações pessoais e gerencia as ações
+ * que um usuário comum pode realizar, como editar seu perfil e
+ * gerenciar sua conta.
+ */
 public class User {
+
     //Atributos
     private String nome;
     private String cpf;
@@ -11,59 +18,110 @@ public class User {
     private String senha;
     private float renda;
     private List<Animal> adotados;
-    private List<Resgate> solicitResgates;
-    private List<Adocao> solicitAdocoes;
     private boolean statusConta = false;
 
-    //Construtor
+    /**
+     * Construtor para criar um novo usuário.
+     * Ao ser criado, o status da conta é definido como ativo (true)
+     * e a lista de animais adotados é inicializada.
+     *
+     * @param nome O nome completo do usuário.
+     * @param email O email do usuário (usado para login).
+     * @param cpf O CPF do usuário.
+     * @param senha A senha de acesso do usuário.
+     * @param renda A renda mensal do usuário.
+     */
     public User(String nome, String email, String cpf, String senha, float renda){
         this.nome = nome;
         this.cpf = cpf;
         this.email = email;
         this.senha = senha;
-        this.adotados = new ArrayList<>();
-        this.solicitResgates = new ArrayList<>();
-        this.solicitAdocoes = new ArrayList<>();
         this.renda = renda;
+        this.adotados = new ArrayList<>();
         this.statusConta = true;
-
     }
-    //Getters e Setters
-    //nome
+
+    // --- Getters e Setters ---
+
+    /**
+     * Obtém o nome do usuário.
+     * @return O nome do usuário.
+     */
     public String getNome(){ return nome; }
+
+    /**
+     * Define o nome do usuário.
+     * @param nome O novo nome do usuário.
+     */
     public void setNome(String nome){ this.nome = nome; }
 
-    //cpf
+    /**
+     * Obtém o CPF do usuário.
+     * @return O CPF do usuário.
+     */
     public String getCpf() { return cpf; }
+
+    /**
+     * Define o CPF do usuário.
+     * @param cpf O novo CPF do usuário.
+     */
     public void setCpf(String cpf){ this.cpf = cpf; }
 
-    //renda
+    /**
+     * Obtém a renda do usuário.
+     * @return A renda do usuário.
+     */
     public float getRenda() { return renda; }
+
+    /**
+     * Define a renda do usuário.
+     * @param renda A nova renda do usuário.
+     */
     public void setRenda(float renda){ this.renda = renda; }
 
-    //senha
+    /**
+     * Obtém a senha do usuário.
+     * @return A senha (hash ou texto) do usuário.
+     */
     public String getSenha(){ return senha; }
 
-    //email
+    /**
+     * Obtém o email do usuário.
+     * @return O email do usuário.
+     */
     public String getEmail(){ return email; }
+
+    /**
+     * Define o email do usuário.
+     * @param email O novo email do usuário.
+     */
     public void setEmail(String email){ this.email = email; }
 
-    //adotados
+    /**
+     * Obtém a lista de animais adotados pelo usuário.
+     * @return Uma lista de objetos Animal.
+     */
     public List<Animal> getAdotados(){ return adotados; }
-    public List<Animal> setAdotados(Animal animal){ this.adotados.add(animal); }
-    //verificar mudar uma lista toda nao faz sentido, faz sentido adicionar um animal.
 
-    //solicitações de adoções
-    public List<Adocao> getSolicitAdocao() { return solicitAdocao; }
-    public void setSolicitAdocao(Adocao adocao){ this.solicitAdocao.add(adocao); }
+    /**
+     * Adiciona um animal à lista de adotados do usuário.
+     * @param animal O animal que foi adotado.
+     */
+    public void setAdotados(Animal animal){ adotados.add(animal); }
 
-    //solicitações de resgates
-    public List<Resgate> getSolicitResgates() { return solicitResgates; }
-    public void setSolicitResgates(Resgate resgate) { this.solicitResgates.add(resgate); }
 
-    //MÉTODOS (APENAS OS QUE ENVOLVEM A MESMA CLASSE)
+    // --- MÉTODOS ---
 
-    //editar perfil
+    /**
+     * Permite ao usuário editar suas informações de perfil.
+     * A alteração só é permitida se a senha atual fornecida for correta.
+     *
+     * @param senhaAtual A senha atual do usuário, para verificação.
+     * @param nome O novo nome a ser atualizado.
+     * @param cpf O novo CPF a ser atualizado.
+     * @param renda A nova renda a ser atualizada.
+     * @param email O novo email a ser atualizado.
+     */
     public void editarPerfil(String senhaAtual, String nome, String cpf, float renda, String email){
         if(this.senha.equals(senhaAtual)){
             this.nome = nome;
@@ -72,26 +130,25 @@ public class User {
             this.email = email;
         }
     }
-    //editar senha
+
+    /**
+     * Altera a senha do usuário.
+     * A alteração só é permitida se a senha atual fornecida for correta.
+     *
+     * @param senhaAtual A senha atual do usuário, para verificação.
+     * @param senhaNova A nova senha que substituirá a atual.
+     */
     public void mudarSenha(String senhaAtual, String senhaNova){
         if (this.senha.equals(senhaAtual)) {
             this.senha = senhaNova;
         }
     }
 
-    //apagar conta
+    /**
+     * Desativa a conta do usuário.
+     * Altera o status da conta para 'false'.
+     */
     public void apagarConta(){
         this.statusConta = false;
     }
-
-    //Efetuar solicitacoes
-    public Adocao solicitarAdocao(Animal animal ){
-        return new Adocao(this, animal );
-    }
-
-    public Resgate solicitarResgate(String especie, String sexo, String local, String caracteristicas){
-        return new Resgate(especie, sexo, local, caracteristicas, this);
-    }
-
 }
-

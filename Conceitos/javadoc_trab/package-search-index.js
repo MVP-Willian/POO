@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"br.com.adocao"},{"l":"br.com.adocao.model"},{"l":"br.com.adocao.services"}];updateSearchResults();
