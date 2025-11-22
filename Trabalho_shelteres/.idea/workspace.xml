@@ -5,18 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="74e8cc65-cac5-424d-b7a5-1b3b01efb75e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/adocao/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/adocao/model/Admin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/adocao/model/Animal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/adocao/model/Solicitacao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/adocao/model/SolicitacaoAdocao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/adocao/model/SolicitacaoResgate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/adocao/model/StatusSolicitacao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/adocao/model/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/adocao/services/SolicitacaoService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
@@ -30,6 +21,7 @@
       <change beforePath="$PROJECT_DIR$/out/br/com/adocao/model/StatusSolicitacao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/br/com/adocao/model/StatusSolicitacao.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/br/com/adocao/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/br/com/adocao/model/User.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/br/com/adocao/services/SolicitacaoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/br/com/adocao/services/SolicitacaoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/br/com/adocao/Main.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/br/com/adocao/model/Admin.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/br/com/adocao/model/Animal.java" beforeDir="false" />
@@ -39,6 +31,7 @@
       <change beforePath="$PROJECT_DIR$/src/br/com/adocao/model/StatusSolicitacao.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/br/com/adocao/model/User.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/br/com/adocao/services/SolicitacaoService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/adocao/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/adocao/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

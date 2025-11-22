@@ -3,8 +3,11 @@ package br.com.adocao;
 import br.com.adocao.model.*;
 import br.com.adocao.services.*;
 import br.com.adocao.persistence.DatabaseInitializer;
+import br.com.adocao.persistence.AnimalDAO;
 
+import java.awt.*;
 import java.util.*;
+import java.util.List;
 
 /**
  * Classe principal que inicia a aplicação de linha de comando (CLI).
@@ -24,6 +27,9 @@ public class Main {
 
     /** Lista em memória que simula a tabela de administradores. */
     private static List<Admin> admins = new ArrayList<>();
+
+    //** Objeto intermediário que será usado para conectar os dados em memória para o banco de dados. */
+    private static AnimalDAO animalDAO = new AnimalDAO();
 
     /** Lista em memória que simula a tabela de animais. (Classe Animal não fornecida, mas presumida) */
     private static List<Animal> animais = new ArrayList<>();
@@ -45,10 +51,54 @@ public class Main {
     public static void main(String[] args) {
         // 1. Inicializa o banco de dados - caso ja esteja criado ele apenas inicializa a conexão caso não ele cria o arquivo e as relações.
         DatabaseInitializer.inicializar();
+
+        testarAnimalDAO();
+
         // 2. Preenche o sistema com dados de exemplo para teste.
         carregarDadosIniciais();
         // 3. Inicia o loop infinito do menu principal.
         menuPrincipal();
+        limparBancoAnimais();
+    }
+
+    public static void testarAnimalDAO(){
+        System.out.println(" ====== TESTE NO BANCO DE DADOS (AnimalDAO) ======");
+
+        try {
+            Animal animal = new Animal(434, "trufinha", 4, "vira-lata", "M",
+                    "Possui um rabo cortado", "Ainda nao foi vacinado",
+                    "-3.0702569,-59.9534721", "Disponível", "grande", 35);
+
+            animalDAO.inserir(animal);
+
+            List<Animal> animaisBanco = animalDAO.listarTodos();
+
+            System.out.println("\nAnimais vindo do BANCO:");
+            for (Animal a : animaisBanco) {
+                System.out.println(a);
+            }
+
+        } catch (Exception e) {
+            System.out.println("Erro ao acessar o banco de dados:");
+            e.printStackTrace();
+        }
+
+    }
+
+    private static void limparBancoAnimais() {
+        System.out.println("Tem certeza que deseja APAGAR TODOS os animais do banco? (s/n)");
+        String op = sc.nextLine();
+
+        if(op.equalsIgnoreCase("s")) {
+            try {
+                animalDAO.limparTabela();
+                System.out.println("✅ Banco de animais limpo com sucesso!");
+            } catch (Exception e) {
+                System.out.println("❌ Erro ao limpar banco: " + e.getMessage());
+            }
+        } else {
+            System.out.println("Operação cancelada.");
+        }
     }
 
     /**
@@ -138,7 +188,7 @@ public class Main {
                     // TODO: Implementar métodos de admin
                     case 1 -> System.out.println("TODO: verificarSolicitacoes()"); //verificarSolicitacoes();
                     case 2 -> System.out.println("TODO: verificarAnimais()"); //verificarAnimais();
-                    case 3 -> System.out.println("TODO: adicionarAnimal()"); //adicionarAnimal();
+                    case 3 -> adicionarAnimal(); //adicionarAnimal();
                     case 4 -> fluxoResgate(); // Admin também pode registrar resgate
                     case 5 -> System.out.println("TODO: adicionarAdmin()"); //adicionarAdmin();
                     case 6 -> { adminLogado = null; System.out.println("Logout realizado."); }
@@ -356,10 +406,40 @@ public class Main {
     }
 
     // --- Métodos de Admin (TODO) ---
-    // (Você pode adicionar os métodos que faltam aqui)
 
     // private static void verificarSolicitacoes() { ... }
     // private static void verificarAnimais() { ... }
     // private static void adicionarAnimal() { ... }
-    // private static void adicionarAdmin() { ... }
+
+    //criar atributo para raça do animal
+    private static void adicionarAnimal() {
+        System.out.print("Nome: ");
+        String nome = sc.nextLine();
+        System.out.print("Idade:");
+        Integer idade = Integer.parseInt(sc.nextLine());
+        System.out.print("Especie:");
+        String sexo = sc.nextLine();
+        System.out.print("Sexo:");
+        String local = sc.nextLine();
+        System.out.print("Porte:");
+        String descricao = sc.nextLine();
+        System.out.print("Peso:");
+        float peso = Float.parseFloat(sc.nextLine());
+        System.out.print("Personalidade:");
+        String personalidade = sc.nextLine();
+        System.out.print("Historico:");
+        String historico = sc.nextLine();
+        System.out.print("localEncontrado:");
+        String localEncontrado = sc.nextLine();
+        System.out.print("Situacao:");
+        String situacao = sc.nextLine();
+
+        Animal animal = new Animal(65, nome, idade, sexo, local, descricao, situacao, personalidade, historico, localEncontrado, peso);
+
+        animais.add(animal);
+        animalDAO.inserir(animal);
+        System.out.println("Animal adicionado ao banco de dados com sucesso!");
+
+    }
+     //private static void adicionarAdmin() { ... }
 }
