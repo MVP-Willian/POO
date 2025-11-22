@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="74e8cc65-cac5-424d-b7a5-1b3b01efb75e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/adocao/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/adocao/model/Admin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/adocao/model/Animal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/adocao/model/Solicitacao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/adocao/model/SolicitacaoAdocao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/adocao/model/SolicitacaoResgate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/adocao/model/StatusSolicitacao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/adocao/model/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/adocao/services/SolicitacaoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trabalho_Shelteres.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/br/com/adocao/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/br/com/adocao/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/br/com/adocao/model/Admin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/br/com/adocao/model/Admin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/br/com/adocao/model/Animal.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/br/com/adocao/model/Animal.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/br/com/adocao/model/Solicitacao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/br/com/adocao/model/Solicitacao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/br/com/adocao/model/SolicitacaoAdocao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/br/com/adocao/model/SolicitacaoAdocao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/br/com/adocao/model/SolicitacaoResgate.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/br/com/adocao/model/SolicitacaoResgate.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/br/com/adocao/model/StatusSolicitacao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/br/com/adocao/model/StatusSolicitacao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/br/com/adocao/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/br/com/adocao/model/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/br/com/adocao/services/SolicitacaoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/br/com/adocao/services/SolicitacaoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/adocao/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/adocao/model/Admin.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/adocao/model/Animal.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/adocao/model/Solicitacao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/adocao/model/SolicitacaoAdocao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/adocao/model/SolicitacaoResgate.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/adocao/model/StatusSolicitacao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/adocao/model/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/com/adocao/services/SolicitacaoService.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="package-info" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="34p7sBFRIYh59bijlZhLMNr1A7i" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/michaelwillian/Documents/Repositórios/POO/Trabalho_Shelteres",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "to.speed.mode.migration.done": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="br.com.adocao.Main" />
+      <module name="sistema-canil" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.com.adocao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="$USER_HOME$/Library/Java/JavaVirtualMachines/openjdk-24.0.2+12-54/Contents/Home" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="br.com.adocao.Main" />
+      <module name="sistema-canil" />
+      <option name="VM_PARAMETERS" value="--enable-native-access=ALL-UNNAMED " />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.com.adocao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Application.Main (1)" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main (1)" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.25557.131" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="74e8cc65-cac5-424d-b7a5-1b3b01efb75e" name="Changes" comment="" />
+      <created>1761898863987</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1761898863987</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/adocao/Main.java</url>
+          <line>188</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/adocao/Main.java</url>
+          <line>189</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/adocao/Main.java</url>
+          <line>190</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/adocao/Main.java</url>
+          <line>192</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
